@@ -18,6 +18,12 @@ A highly opinionated, all incompasing Grid System
 import Grid from "tailwind-react-grid-overlay";
 
 <Grid
+  // optional: default is `true`
+  visibleByDefault={false}
+  //
+  // Sets of columns for each breakpoint
+  // In this example the mobile columns have outside margin and borders
+  // The others will touch to the outer edges of the window
   cols={[
     {
       breakpoint: `default`,

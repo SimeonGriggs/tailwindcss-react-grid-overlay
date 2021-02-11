@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import GridCols from './GridCols'
 
-function Grid({ cols }) {
-  const [gridVisible, setGridVisible] = useState(true)
+function Grid({ cols, visibleByDefault }) {
+  const [gridVisible, setGridVisible] = useState(visibleByDefault)
   useEffect(() => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'g') setGridVisible(!gridVisible)
@@ -29,6 +29,7 @@ function Grid({ cols }) {
 }
 
 Grid.propTypes = {
+  visibleByDefault: PropTypes.bool,
   cols: PropTypes.arrayOf(PropTypes.shape({
     breakpoint: PropTypes.string.isRequired,
     columns: PropTypes.number.isRequired,
@@ -36,7 +37,8 @@ Grid.propTypes = {
   })),
 }
 
-GridCols.defaultProps = {
+Grid.defaultProps = {
+  visibleByDefault: true,
   cols: [
     {
       breakpoint: `default`,
