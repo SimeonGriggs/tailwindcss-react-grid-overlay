@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import GridCols from './GridCols'
+import GridCols from './GridCols.jsx'
 
 function Grid({ cols, visibleByDefault }) {
   const [gridVisible, setGridVisible] = useState(visibleByDefault)
