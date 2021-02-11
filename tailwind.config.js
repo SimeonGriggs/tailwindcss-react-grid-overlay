@@ -1,18 +1,11 @@
-const borderXY = require('./index')
-
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
   purge: [],
+  darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      borderWidth: {
-        'mega': '20px'
-      }
-    },
+    extend: {},
   },
-  variants: {},
-  plugins: [borderXY],
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 }

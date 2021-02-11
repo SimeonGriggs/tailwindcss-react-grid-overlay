@@ -1,12 +1,9 @@
-// @ts-check
-const reactPlugin = require('vite-plugin-react')
+import reactRefresh from '@vitejs/plugin-react-refresh'
 
 /**
+ * https://vitejs.dev/config/
  * @type { import('vite').UserConfig }
  */
-const config = {
-  jsx: 'react',
-  plugins: [reactPlugin]
+export default {
+  plugins: [reactRefresh()]
 }
-
-module.exports = config
