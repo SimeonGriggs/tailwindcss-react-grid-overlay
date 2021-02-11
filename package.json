@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-react-grid-overlay",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple component for laying column grids over the layout at declared breakpoints.",
   "repository": {
     "type": "git",
@@ -23,10 +23,10 @@
   "author": "Simeon Griggs <simeon@hey.com>",
   "main": "index.js",
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "tailwindcss": "^2.0.0"
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
+    "tailwindcss": "^2.0.0",
     "@pika/react": "^16.13.1",
     "@pika/react-dom": "^16.13.1",
     "vite": "^1.0.0-rc.1",
