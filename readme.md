@@ -15,7 +15,7 @@ A highly opinionated, all incompasing Grid System
 ## Usage
 
 ```jsx
-import Grid from "tailwind-react-grid-overlay";
+import { Grid } from "tailwind-react-grid-overlay";
 
 <Grid
   // optional: default is `true`
