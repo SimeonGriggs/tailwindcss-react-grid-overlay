@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function GridCols({ className, cols, index, set }) {
+function GridCols({ className, cols, index, set, color }) {
   const columns = [...Array(set.columns).keys()]
 
   const nextBreakpoint = cols[index + 1]?.breakpoint
   const visibleClass =
     set.breakpoint === `default` ? `flex` : `hidden ${set.breakpoint}:flex`
   const hiddenClass = nextBreakpoint ? `${nextBreakpoint}:hidden` : `hidden`
-  const defaultClasses = `h-full divide-x divide-red-500`
+  const defaultClasses = `h-full divide-x divide-${color}-500`
 
   const classes = [visibleClass, hiddenClass, defaultClasses, className]
 
@@ -17,7 +17,7 @@ function GridCols({ className, cols, index, set }) {
       {columns.map((col) => (
         <div
           key={col}
-          className="flex-1 text-red-500 flex items-center justify-center h-full"
+          className={`flex-1 text-${color}-500 flex items-center justify-center h-full`}
         >
           {col + 1 === set.columns && (
             <div className="fixed w-full bottom-0 flex justify-center items-center">
@@ -44,6 +44,7 @@ GridCols.propTypes = {
     columns: PropTypes.number.isRequired,
     className: PropTypes.string,
   }),
+  color: PropTypes.string,
 }
 
 GridCols.defaultProps = {
@@ -61,6 +62,7 @@ GridCols.defaultProps = {
     columns: 6,
     className: `mx-4 border-l border-r border-red-500`,
   },
+  color: `red`
 }
 
 export default GridCols

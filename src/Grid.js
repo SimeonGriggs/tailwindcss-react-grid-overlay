@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import GridCols from './GridCols.js'
 
-function Grid({ cols, visibleByDefault }) {
+function Grid({ cols, visibleByDefault, color }) {
   const [gridVisible, setGridVisible] = useState(visibleByDefault)
   useEffect(() => {
     document.addEventListener('keydown', (e) => {
@@ -22,6 +22,7 @@ function Grid({ cols, visibleByDefault }) {
           index={index}
           cols={cols}
           className={set.className}
+          color={color}
         />
       ))}
     </section>
@@ -35,6 +36,7 @@ Grid.propTypes = {
     columns: PropTypes.number.isRequired,
     className: PropTypes.string,
   })),
+  color: PropTypes.string,
 }
 
 Grid.defaultProps = {
@@ -51,6 +53,7 @@ Grid.defaultProps = {
       className: ``,
     },
   ],
+  color: `red`
 }
 
 export default Grid
