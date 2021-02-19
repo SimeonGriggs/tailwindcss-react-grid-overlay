@@ -62,7 +62,7 @@ GridCols.defaultProps = {
     columns: 6,
     className: `mx-4 border-l border-r border-red-500`,
   },
-  color: `red`
+  color: `yellow`
 }
 
 export default GridCols
