@@ -36,7 +36,7 @@ Grid.propTypes = {
     columns: PropTypes.number.isRequired,
     className: PropTypes.string,
   })),
-  color: PropTypes.string,
+  color: PropTypes.oneOf(['red', 'green', 'blue']),
 }
 
 Grid.defaultProps = {

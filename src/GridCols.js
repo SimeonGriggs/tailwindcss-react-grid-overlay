@@ -1,23 +1,35 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types";
+import React from "react";
 
 function GridCols({ className, cols, index, set, color }) {
-  const columns = [...Array(set.columns).keys()]
+  const columns = [...Array(set.columns).keys()];
 
-  const nextBreakpoint = cols[index + 1]?.breakpoint
+  const nextBreakpoint = cols[index + 1]?.breakpoint;
   const visibleClass =
-    set.breakpoint === `default` ? `flex` : `hidden ${set.breakpoint}:flex`
-  const hiddenClass = nextBreakpoint ? `${nextBreakpoint}:hidden` : `hidden`
-  const defaultClasses = `h-full divide-x divide-${color}-500`
+    set.breakpoint === `default` ? `flex` : `hidden ${set.breakpoint}:flex`;
+  const hiddenClass = nextBreakpoint ? `${nextBreakpoint}:hidden` : `hidden`;
+  const defaultClasses = `h-full divide-x `;
 
-  const classes = [visibleClass, hiddenClass, defaultClasses, className]
+  const variable = {
+    red: `divide-red-500 text-red-500`,
+    green: `divide-green-500 text-green-500`,
+    blue: `divide-blue-500 text-blue-500`,
+  };
+
+  const classes = [
+    visibleClass,
+    hiddenClass,
+    defaultClasses,
+    variable[color],
+    className,
+  ];
 
   return (
-    <div className={classes.join(' ').trim()}>
+    <div className={classes.join(" ").trim()}>
       {columns.map((col) => (
         <div
           key={col}
-          className={`flex-1 text-${color}-500 flex items-center justify-center h-full`}
+          className={`flex-1 flex items-center justify-center h-full`}
         >
           {col + 1 === set.columns && (
             <div className="fixed w-full bottom-0 flex justify-center items-center">
@@ -32,7 +44,7 @@ function GridCols({ className, cols, index, set, color }) {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 GridCols.propTypes = {
@@ -44,11 +56,11 @@ GridCols.propTypes = {
     columns: PropTypes.number.isRequired,
     className: PropTypes.string,
   }),
-  color: PropTypes.string,
-}
+  color: PropTypes.oneOf(["red", "green", "blue"]),
+};
 
 GridCols.defaultProps = {
-  className: '',
+  className: "",
   cols: [
     {
       breakpoint: `default`,
@@ -62,7 +74,7 @@ GridCols.defaultProps = {
     columns: 6,
     className: `mx-4 border-l border-r border-red-500`,
   },
-  color: `yellow`
-}
+  color: `yellow`,
+};
 
-export default GridCols
+export default GridCols;

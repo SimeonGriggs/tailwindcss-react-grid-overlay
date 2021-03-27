@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-react-grid-overlay",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A simple component for laying column grids over the layout at declared breakpoints.",
   "repository": {
     "type": "git",
